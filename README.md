@@ -35,23 +35,23 @@ ejercicios indicados.
   SOX: SoX (Sound eXchange) es un comando multiplataforma creado para manipular archivos de audio. Soporta la lectura y escritura en archivos con formatos como AU, WAV, AIFF, Ogg Vorbis, FLAC y MP3 (a través de LAME). También permite la reproducción y grabación de audio a través de los comandos play y rec, respectivamente.
   Si usamos el comando -h (help de ubuntu para programas) vemos todas las opciones que nos ofrece.
 
-    <img src="img/9.png" width="500" align="center">
+    <img src="img/9.PNG" width="500" align="center">
 
   $X2X: x2x es el programa de SPTK que permite la conversión entre distintos formatos de datos.
 
-    <img src="img/10.png" width="500" align="center">
+    <img src="img/10.PNG" width="500" align="center">
 
   $FRAME: Divide la señal de entrada en tramas de 200 muestras (25ms) con desplazamiento de ventana de 40 muestras (5ms) (tenga en cuenta que, en esta práctica, la frecuencia de muestreo es 8 kHz): ej. sptk frame -l 200 -p 40
 
-    <img src="img/11.png" width="500" align="center">
+    <img src="img/11.PNG" width="500" align="center">
 
   $WINDOW: Multiplica cada trama por la ventana de Blackman (opción por defecto): ej. sptk window -l 200
 
-    <img src="img/12.png" width="500" align="center">
+    <img src="img/12.PNG" width="500" align="center">
 
   $LPC: Calcula los lpc_order primeros coeﬁcientes de predicción lineal, precedidos por el factor de ganancia del predictor: ej. sptk lpc -l 200 -m $lpc_order
 
-    <img src="img/13.png" width="500" align="center">
+    <img src="img/13.PNG" width="500" align="center">
 
 - Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros de salida de SPTK (líneas 41 a 47 del script `wav2lp.sh`).
 
@@ -79,17 +79,17 @@ sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WIND
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones para una señal de prueba.
 
-  <img src="img/8.png" width="500" align="center">
+  <img src="img/8.PNG" width="500" align="center">
 
-  <img src="img/1.png" width="500" align="center">
-  <img src="img/2.png" width="500" align="center">
-  <img src="img/3.png" width="500" align="center">
+  <img src="img/1.PNG" width="500" align="center">
+  <img src="img/2.PNG" width="500" align="center">
+  <img src="img/3.PNG" width="500" align="center">
 
-  <img src="img/7.png" width="500" align="center">
+  <img src="img/7.PNG" width="500" align="center">
 
-  <img src="img/4.png" width="500" align="center">
-  <img src="img/5.png" width="500" align="center">
-  <img src="img/6.png" width="500" align="center">
+  <img src="img/4.PNG" width="500" align="center">
+  <img src="img/5.PNG" width="500" align="center">
+  <img src="img/6.PNG" width="500" align="center">
 
 
 
@@ -99,9 +99,9 @@ sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WIND
 
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación    normalizada entre los parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
 
-  <img src="img/14.png" width="500" align="center">
-  <img src="img/15.png" width="500" align="center">
-  <img src="img/16.png" width="500" align="center">
+  <img src="img/14.PNG" width="500" align="center">
+  <img src="img/15.PNG" width="500" align="center">
+  <img src="img/16.PNG" width="500" align="center">
 
   |                        |    LP   |   LPCC   |   MFCC  |
   |------------------------|:-------:|:--------:|:-------:|
@@ -133,11 +133,11 @@ Complete el código necesario para entrenar modelos GMM.
 
     Locutor 42:
 
-    <img src="img/17.png" width="500" align="center">
+    <img src="img/17.PNG" width="500" align="center">
 
     Locutor 107:
 
-    <img src="img/18.png" width="500" align="center">
+    <img src="img/18.PNG" width="500" align="center">
 
 
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
@@ -146,19 +146,19 @@ Complete el código necesario para entrenar modelos GMM.
 
   Locutor 42 con su población:
 
-  <img src="img/22_p42s42.png" width="500" align="center">
+  <img src="img/22_p42s42.PNG" width="500" align="center">
 
   Locutor 107 con su población:
 
-  <img src="img/19_p107s107.png" width="500" align="center">
+  <img src="img/19_p107s107.PNG" width="500" align="center">
 
   Locutor 42 con la población del locutor 107:
 
-  <img src="img/20_p107s42.png" width="500" align="center">
+  <img src="img/20_p107s42.PNG" width="500" align="center">
 
   Locutor 107 con la población del locutor 42:
 
-  <img src="img/21_p42s107.png" width="500" align="center">
+  <img src="img/21_p42s107.PNG" width="500" align="center">
 
   Si población y locutor no coinciden, vemos que no hay coincidencia entre las regiones y las poblaciones. Es decir, la densidad no se centra en el circulo del % correspondiente. En las que si coincide, vemos con claridad que estan repartidas de manera correcta. Esto nos ayuda para diferenciar que candidatos son impostores o usuarios legítimos.
 
@@ -175,7 +175,7 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   | LPCC  |  8.54%   |
   | MFCC  |  18.22%  |
 
-    <img src="img/23.png" width="500" align="center">
+    <img src="img/23.PNG" width="500" align="center">
 
 ### Verificación del locutor.
 
@@ -185,6 +185,8 @@ Complete el código necesario para realizar verificación del locutor y optimice
   de verificación de SPEECON. La tabla debe incluir el umbral óptimo, el número de falsas alarmas y de
   pérdidas, y el score obtenido usando la parametrización que mejor resultado le hubiera dado en la tarea
   de reconocimiento.
+
+    <img src="img/33_veriflp.PNG" width="500" align="center">
 
 ### Test final y trabajo de ampliación.
 
