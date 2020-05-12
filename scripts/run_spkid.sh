@@ -172,7 +172,7 @@ for cmd in $*; do
 	   #   For instance:
 	   #   * <code> gmm_verify ... > $w/verif_${FEAT}_${name_exp}.log </code>
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
-     gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -w world -E gmm $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log
+    gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -w world -E gmm $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log
 
 
    elif [[ $cmd == verif_err ]]; then
@@ -190,6 +190,8 @@ for cmd in $*; do
 	   # Perform the final test on the speaker classification of the files in spk_ima/sr_test/spk_cls.
 	   # The list of users is the same as for the classification task. The list of files to be
 	   # recognized is lists/final/class.test
+      (gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/final/class.test | tee $w/class${FEAT}_${name_exp}.log) || exit 1       
+
        echo "To be implemented ..."
 
    elif [[ $cmd == finalverif ]]; then
@@ -199,6 +201,8 @@ for cmd in $*; do
 	   # The list of legitimate users is lists/final/verif.users, the list of files to be verified
 	   # is lists/final/verif.test, and the list of users claimed by the test files is
 	   # lists/final/verif.test.candidates
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users   $lists/final/verif.users  $lists/final/verif.test    $lists/final/verif.test.candidates > $w/verif${FEAT}_${name_exp}.log   exit 1
+
        echo "To be implemented ..."
 
    # If the command is not recognize, check if it is the name
